@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Owners from './Components/Owners'
+import Nav from 'react-bootstrap/Nav'
+import Menu from './Components/Menu'
+
 
 class App extends Component {
 
   render() {
     return (
-      <div className = "container">
-        <Owners />
+      <div className = "container mt-3">
+        <Menu />
       </div>
     );
   }
