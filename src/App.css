@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -30,4 +31,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn-circle, .btn-circle-3d{
+  margin-bottom: 10px;
+  border-radius: 50% !important;
+}
+
+.searchbar-button {
+  display: flex;
+  justify-content: space-between;
 }
