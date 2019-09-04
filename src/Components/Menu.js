@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
-import { Tab, Tabs } from 'react-bootstrap'
+import { Tabs } from 'react-bootstrap'
 import Owners from './Owners'
+import { NavLink } from 'react-router-dom'
 
 class Menu extends Component {
   render() {
     return (
       <Tabs defaultActiveKey="owners" id="uncontrolled-tab-example">
-        <Tab eventKey="owners" title="Автовладельцы">
-          <Owners />
-        </Tab>
-        <Tab eventKey="catalog" title="Каталог авто">
 
-        </Tab>
-        <Tab eventKey="statistics" title="Статистика">
+          <NavLink to="/owners" eventKey="owners" title="Автовладельцы">
+              <Owners />
+          </NavLink>
 
-        </Tab>
+        <NavLink to="/catalog" eventKey="catalog" title="Каталог авто">
+
+        </NavLink>
+        <NavLink to="/statistics" eventKey="statistics" title="Статистика">
+
+        </NavLink>
       </Tabs>
     )
   }

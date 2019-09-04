@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Nav from 'react-bootstrap/Nav'
 import Menu from './Components/Menu'
-
 
 class App extends Component {
 

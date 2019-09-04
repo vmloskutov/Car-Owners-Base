@@ -25,7 +25,7 @@ render() {
          <div className="form-group">
            <div className="searchbar-button">
              <label htmlFor="id">Поиск автовладельца</label>
-             <button class="btn btn-sm btn-primary btn-circle"><i class="fa fa-plus"></i></button>
+             <button className="btn btn-sm btn-primary btn-circle"><i className="fa fa-plus"></i></button>
            </div>
            <input type="number" className="form-control"
              name="id" value={this.state.id} onChange={this.handleUserInput} placeholder="ID пользователя"/>
