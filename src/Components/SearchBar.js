@@ -24,12 +24,9 @@ class SearchPage extends Component {
         }
       })
       .then(response => {
-
         this.setState({...response.data})
         this.props.onSearchBar(this.state);
       })
-
-
   }
 
 render() {
