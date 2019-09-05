@@ -1,68 +1,32 @@
-import React, { Component } from 'react';
-import './App.css';
-import Menu from './Components/Menu'
+import React, { Component } from "react";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
+import "./App.css";
+import Owners from './Components/Owners'
 
+const Comments = () => <div>You're on the Comments Tab</div>;
+const Contact = () => <div>You're on the Contact Tab</div>;
 class App extends Component {
-
   render() {
     return (
-      <div className = "container mt-3">
-        <Menu />
+
+      <div className="container">
+        <Switch>
+          <Redirect from="/" to="/owners" />
+        </Switch>
+        <div className="tab">
+          <Link to={`/owners`} className="link"><button className="tablinks">Автовладельцы</button></Link>
+          <Link to={`/catalog`} className="link"><button className="tablinks">Каталог авто</button></Link>
+          <Link to={`/statistics`} className="link"><button className="tablinks">Статистика</button></Link>
+        </div>
+        <div className="tabs">
+          <Switch>
+            <Route path={`/owners`} component={Owners} />
+            <Route path={`/catalog`} component={Comments} />
+            <Route path={`/statistics`} component={Contact} />
+          </Switch>
+        </div>
       </div>
     );
   }
-
-
-  //
-  // state = {
-  //   cars: [
-  //     {name: 'Ford', year: 2018},
-  //     {name: 'Audi', year: 2016},
-  //     {name: 'Mazda', year: 2010}
-  //   ],
-  //   pageTitle: 'React components' 
-  // }
-  //
-  // changeTitleHandler = (newTitle) => {
-  //   this.setState({
-  //     pageTitle: newTitle
-  //   })
-  // }
-  //
-  // handleInput = (event) => {
-  //   this.setState({
-  //     pageTitle: event.target.value
-  //   })
-  // }
-  //
-  // render() {
-  //   const divStyle = {
-  //     textAlign: 'center'
-  //   }
-  //
-  //   return (
-  //     <div style={divStyle}>
-  //       <h1>{this.state.pageTitle}</h1>
-  //
-  //       <input type="text" onChange={this.handleInput} />
-  //
-  //       <button
-  //         onClick={this.changeTitleHandler.bind(this, 'Changed!')}
-  //       >Change title</button>
-  //
-  //       { this.state.cars.map((car, index) => {
-  //         return (
-  //           <Car
-  //             key={index}
-  //             name={car.name}
-  //             year={car.year}
-  //             onChangeTitle={() => this.changeTitleHandler(car.name)}
-  //           />
-  //         )
-  //       }) }
-  //     </div>
-  //   );
-  // }
 }
-
 export default App;
