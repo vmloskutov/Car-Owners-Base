@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from "axios";
 
 class SearchPage extends Component {
   constructor (props) {
@@ -16,8 +17,19 @@ class SearchPage extends Component {
 
   formSubmit = (e) => {
     e.preventDefault();
-    this.props.onSearchBar(this.state.id);
-    console.log(this.state.id);
+    axios
+      .get('http://172.30.215.172:8081/RESTfulWebApp/personwithcars', {
+        params: {
+          personid: this.state.id
+        }
+      })
+      .then(response => {
+
+        this.setState({...response.data})
+        this.props.onSearchBar(this.state);
+      })
+
+
   }
 
 render() {

@@ -8,15 +8,17 @@ class Owners extends Component {
       id: ''
     }
   }
-  handleId = (childId) => {
-        this.setState({id: childId});
+  handleId = (child) => {
+        this.setState({...child});
     }
 
   render() {
     return (
       <div>
         <SearchBar onSearchBar={this.handleId}/>
-        <ListInfo id={this.state.id} />
+        <div className="list-info">
+          <ListInfo info={this.state} />
+        </div>
       </div>
     )
   }

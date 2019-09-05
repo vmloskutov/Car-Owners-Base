@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
-import axios from "axios";
+
 
 class ListInfo extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      id: ''
+      id: ""
     }
   }
 
+
   render() {
     return (
-      <div>
-        {this.props.id}
+      <div className="list">
+      {console.log(this.props.info)}
+          {this.props.info.name}
       </div>
     )
   }
