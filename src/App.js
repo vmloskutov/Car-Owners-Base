@@ -14,6 +14,7 @@ function selectButton(e) {
 const Comments = () => <div>You're on the Comments Tab</div>;
 const Contact = () => <div>You're on the Contact Tab</div>;
 class App extends Component {
+
   render() {
     return (
 
@@ -26,7 +27,7 @@ class App extends Component {
           <Link to={`/catalog`} className="link"><button className="tablinks" onClick={selectButton}>Каталог авто</button></Link>
           <Link to={`/statistics`} className="link"><button className="tablinks" onClick={selectButton}>Статистика</button></Link>
         </div>
-        <div className="tabs">
+        <div className="info">
           <Switch>
             <Route path={`/owners`} component={Owners} />
             <Route path={`/catalog`} component={Comments} />

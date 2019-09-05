@@ -50,7 +50,7 @@
   margin: 0 10px;
 }
 
-.tabs {
+.info {
   padding: 20px;
   border: 1px solid #f5f5f5;
 }
@@ -88,4 +88,26 @@
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+}
+
+/* убираем стрелки из input */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+  -moz-appearance: number-input;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

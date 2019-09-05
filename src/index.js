@@ -2,17 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import Owners from './Components/Owners'
-//import 'bootstrap/dist/css/bootstrap-theme.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const routes = (
   <BrowserRouter>
     <Switch>
       <Route path="/" component={App} />
-      //<Redirect from="/" to="/owners" />
     </Switch>
   </BrowserRouter>
 )

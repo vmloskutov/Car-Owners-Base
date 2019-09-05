@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 class SearchPage extends Component {
   constructor (props) {
     super(props);
@@ -15,13 +14,19 @@ class SearchPage extends Component {
     this.setState({[name]: value});
   }
 
+  formSubmit = (e) => {
+    e.preventDefault();
+    this.props.onSearchBar(this.state.id);
+    console.log(this.state.id);
+  }
+
 render() {
     const formStyle = {
          marginTop: "30px"
     }
     return (
       <div style={formStyle}>
-        <form className="demoForm">
+        <form className="demoForm" onSubmit={this.formSubmit}>
          <div className="form-group">
            <div className="searchbar-button">
              <label htmlFor="id">Поиск автовладельца</label>
