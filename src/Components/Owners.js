@@ -7,8 +7,6 @@ class Owners extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      id: '',
-      persons: ''
     }
   }
   handleId = (child) => {
@@ -16,26 +14,44 @@ class Owners extends Component {
         //document.querySelector(".list-info").style.display = "block";
     }
 
+    getOwnersIds() {
+            axios
+                .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
+                .then(response => {
+                    let firstIdToShow = response.data.length - 3
+                    if (firstIdToShow >= 0) {
+                        let last3Ids = response.data.splice(firstIdToShow, firstIdToShow + 3)
+                        this.setState({ ...last3Ids })
+                        // console.log(this.state);
+                    } else {
+                        let last3Ids = response.data
+                        this.setState({ ...last3Ids })
+                    }
+                    console.log(this.state);
+                })
+        }
+
+  componentWillMount() {
+    this.getOwnersIds()
+      }
+
   personlist = () => {
     axios
     .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
     .then(response => {
-      let temp;
-      temp =  response.data;
-      console.log(temp);
-      this.setState({ persons: temp })
+      console.log(response.data);
+      this.setState({ids: response.data})
       console.log(this.state);
     })
   }
 
   render() {
-    this.personlist();
     return (
       <div>
         <SearchBar onSearchBar={this.handleId}/>
-        <div className="list-info">
-          <ListInfo info={this.state} />
-        </div>
+        // <div className="list-info">
+        //   <ListInfo info={this.state} />
+        // </div>
       </div>
     )
   }
