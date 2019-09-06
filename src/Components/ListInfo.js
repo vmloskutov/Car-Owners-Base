@@ -8,25 +8,18 @@ class ListInfo extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      id: "",
-      persons: this.props.persons
+      id: this.props.info.ids,
+      persons: this.props.info
     }
+    console.log(this.state.ids);
   }
 
-  // componentDidMount() {
-  //   axios
-  //     .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
-  //     .then(response => {
-  //       this.setState({persons: response.data});
-  //       console.log(this.state.persons);
-  //     })
-  // }
 
   render() {
     if (this.props.info.name === undefined) {
       return (
         <div>
-          <PersonsList list={this.state.persons} />
+          <PersonsList list={this.state.ids} />
         </div>
       )
     } else return (
