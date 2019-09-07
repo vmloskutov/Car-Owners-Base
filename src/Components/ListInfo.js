@@ -11,7 +11,8 @@ class ListInfo extends Component {
   }
 
   render() {
-    if (this.props.current.name === undefined && this.props.current.error === "" ) {
+    console.log(this.props.current.name);
+    if ((this.props.current.name === undefined || this.props.current.name === " ") && this.props.current.error === "" ) {
       return (
         <div>
           <PersonsList list={this.props.info} />
