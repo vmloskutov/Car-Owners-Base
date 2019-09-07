@@ -7,12 +7,18 @@ class Owners extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      error: ""
     }
   }
 
   handleId = (child) => {
+      if (typeof child === "string") {
+        this.setState({error: child});
+      } else {
+        this.setState({error: ""});
         this.setState({...child});
+      }
     }
 
     componentDidMount() {
@@ -31,7 +37,6 @@ class Owners extends Component {
     return (
       <div>
         <SearchBar onSearchBar={this.handleId}/>
-        {console.log(this.state)}
         <div className="list-info">
           {this.state.data ? <ListInfo info={this.state.data} current={this.state} /> : <ListInfo /> }
         </div>

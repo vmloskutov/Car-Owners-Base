@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import PersonsList from './PersonsList'
-
+import ErrorId from './ErrorId'
+import CurrentPerson from './CurrentPerson'
 
 
 class ListInfo extends Component {
@@ -13,32 +14,19 @@ class ListInfo extends Component {
 
 
   render() {
-    console.log(this.props);
-    if (this.props.current.name === undefined) {
-
+    if (this.props.current.name === undefined && this.props.current.error === "" ) {
       return (
         <div>
           <PersonsList list={this.props.info} />
         </div>
       )
-    } else return (
-
-      <div className="row">
-      {console.log("Программа зашла отрисовку")}
-        <div className="list col-6">
-          <div>
-              {this.props.current.name}
-          </div>
-          <div>
-              <i className="fas fa-gift"></i> {this.props.current.birthdate}
-          </div>
+    } else {
+      return (
+        <div>
+          {this.props.current.error ? <ErrorId error={this.props.current.error} /> : <CurrentPerson data={this.props.current} />}
         </div>
-        <div className="autopark col-6">
-          Автопарк
-
-        </div>
-      </div>
-    )
+      )
+    }
   }
 }
 

@@ -27,6 +27,9 @@ class SearchPage extends Component {
         this.setState({...response.data})
         this.props.onSearchBar(this.state);
       })
+      .catch(error => {
+          this.props.onSearchBar(`Пользователь с ID = ${this.state.id} не найден`)
+      });
   }
 
 render() {
