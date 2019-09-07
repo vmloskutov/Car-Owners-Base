@@ -6,7 +6,6 @@ class Person extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      personInfo : null
     }
   }
 
@@ -23,8 +22,8 @@ class Person extends Component {
       })
       .then(response => {
         console.log(response.data);
-        this.setState({perosonInfo: response.data})
-        console.log(this.state.personInfo);
+        this.setState({...response.data})
+        console.log(this.state);
       })
   }
 
@@ -32,10 +31,10 @@ class Person extends Component {
       return (
         <div>
           <div>
-              {this.state.personInfo}
+              {this.state.name}
           </div>
           <div>
-              <i className="fas fa-gift"></i> {this.state.personInfo}
+              <i className="fas fa-gift"></i> {this.state.birthdate}
           </div>
         </div>
     )

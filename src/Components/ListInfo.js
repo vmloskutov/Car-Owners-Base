@@ -15,10 +15,9 @@ class ListInfo extends Component {
   render() {
 
     if (this.props.info.name === undefined) {
-  
+
       return (
         <div>
-        {this.props.info}
           <PersonsList list={this.props.info} />
         </div>
       )

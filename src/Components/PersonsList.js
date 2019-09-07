@@ -14,7 +14,6 @@ class PersonsList extends Component {
   render() {
       return (
         <div>
-        {this.props.list}
           {this.props.list.map((person, index) => {
             console.log(person);
             return(
