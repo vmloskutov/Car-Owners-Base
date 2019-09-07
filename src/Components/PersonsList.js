@@ -14,8 +14,7 @@ class PersonsList extends Component {
   render() {
       return (
         <div>
-          {this.props.list.map((person, index) => {
-            console.log(person);
+          {this.props.list.reverse().slice(0, 3).map((person, index) => {
             return(
               <Person key={index} personId={person} />
             )

@@ -13,7 +13,6 @@ class Owners extends Component {
 
   handleId = (child) => {
         this.setState({...child});
-        //document.querySelector(".list-info").style.display = "block";
     }
 
     componentDidMount() {
@@ -21,7 +20,6 @@ class Owners extends Component {
         }
 
         getData(){
-        //  const self = this
           axios
           .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
           .then(response => {
@@ -33,8 +31,9 @@ class Owners extends Component {
     return (
       <div>
         <SearchBar onSearchBar={this.handleId}/>
+        {console.log(this.state)}
         <div className="list-info">
-          {this.state.data ? <ListInfo info={this.state.data} /> : <ListInfo /> }
+          {this.state.data ? <ListInfo info={this.state.data} current={this.state} /> : <ListInfo /> }
         </div>
       </div>
     )

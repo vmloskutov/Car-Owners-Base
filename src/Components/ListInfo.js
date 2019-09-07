@@ -13,8 +13,8 @@ class ListInfo extends Component {
 
 
   render() {
-
-    if (this.props.info.name === undefined) {
+    console.log(this.props);
+    if (this.props.current.name === undefined) {
 
       return (
         <div>
@@ -22,13 +22,15 @@ class ListInfo extends Component {
         </div>
       )
     } else return (
+
       <div className="row">
+      {console.log("Программа зашла отрисовку")}
         <div className="list col-6">
           <div>
-              {this.props.info.name}
+              {this.props.current.name}
           </div>
           <div>
-              <i className="fas fa-gift"></i> {this.props.info.birthdate}
+              <i className="fas fa-gift"></i> {this.props.current.birthdate}
           </div>
         </div>
         <div className="autopark col-6">

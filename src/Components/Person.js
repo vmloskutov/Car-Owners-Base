@@ -21,9 +21,7 @@ class Person extends Component {
         }
       })
       .then(response => {
-        console.log(response.data);
         this.setState({...response.data})
-        console.log(this.state);
       })
   }
 
