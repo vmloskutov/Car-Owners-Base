@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import axios from "axios"
 import PersonsList from './PersonsList'
-import ErrorId from './ErrorId'
+import Error from './Error'
 import CurrentPerson from './CurrentPerson'
-
 
 class ListInfo extends Component {
   constructor (props) {
@@ -11,7 +9,6 @@ class ListInfo extends Component {
     this.state = {
     }
   }
-
 
   render() {
     if (this.props.current.name === undefined && this.props.current.error === "" ) {
@@ -23,7 +20,7 @@ class ListInfo extends Component {
     } else {
       return (
         <div>
-          {this.props.current.error ? <ErrorId error={this.props.current.error} /> : <CurrentPerson data={this.props.current} />}
+          {this.props.current.error ? <Error error={this.props.current.error} /> : <CurrentPerson data={this.props.current} />}
         </div>
       )
     }

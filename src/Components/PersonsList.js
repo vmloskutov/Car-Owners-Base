@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import axios from "axios";
 import Person from './Person'
-
 
 class PersonsList extends Component {
   constructor (props) {
@@ -9,7 +7,6 @@ class PersonsList extends Component {
     this.state = {
     }
   }
-
 
   render() {
       return (

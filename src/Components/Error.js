@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ErrorId extends Component {
+class Error extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -17,4 +17,4 @@ class ErrorId extends Component {
   }
 }
 
-export default ErrorId;
+export default Error;

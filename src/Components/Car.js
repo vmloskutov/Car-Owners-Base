@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default props => (
-  <div>
-    <h3>Сar name: {props.name}</h3>
-    <p>Year: <strong>{props.year}</strong></p>
-    <button onClick={props.onChangeTitle}>Click</button>
-  </div>
-)
+class Error extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+    }
+  }
+
+
+  render() {
+      return (
+        <div>
+          {this.props.info.model}
+        </div>
+    )
+  }
+}
+
+export default Error;

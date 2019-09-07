@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Error from './Error'
+import Cars from './Cars'
 
 class CurrentPerson extends Component {
   constructor (props) {
@@ -6,7 +8,6 @@ class CurrentPerson extends Component {
     this.state = {
     }
   }
-
 
   render() {
       return (
@@ -21,7 +22,7 @@ class CurrentPerson extends Component {
           </div>
           <div className="autopark col-6">
             Автопарк
-
+              {(this.props.data.cars.length !== 0) ? <Cars cars={this.props.data.cars} /> : <Error error="-" />}
           </div>
         </div>
     )
