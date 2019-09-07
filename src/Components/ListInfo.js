@@ -8,18 +8,18 @@ class ListInfo extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      id: this.props.info.ids,
-      persons: this.props.info
     }
-    console.log(this.state.ids);
   }
 
 
   render() {
+
     if (this.props.info.name === undefined) {
+  
       return (
         <div>
-          <PersonsList list={this.state.ids} />
+        {this.props.info}
+          <PersonsList list={this.props.info} />
         </div>
       )
     } else return (

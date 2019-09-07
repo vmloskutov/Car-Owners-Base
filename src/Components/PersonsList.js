@@ -7,7 +7,6 @@ class PersonsList extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      personsId : this.props.list
     }
   }
 
@@ -15,9 +14,11 @@ class PersonsList extends Component {
   render() {
       return (
         <div>
-          {this.state.personId.map((person) => {
+        {this.props.list}
+          {this.props.list.map((person, index) => {
+            console.log(person);
             return(
-              <Person personId={person} />
+              <Person key={index} personId={person} />
             )
           })}
         </div>
