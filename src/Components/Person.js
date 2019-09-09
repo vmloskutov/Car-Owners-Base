@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from "axios";
-
+import Card from 'react-bootstrap/Card';
 
 class Person extends Component {
   constructor (props) {
     super(props);
     this.state = {
+
     }
   }
 
@@ -28,12 +29,15 @@ class Person extends Component {
   render() {
       return (
         <div>
-          <div>
-              {this.state.name}
-          </div>
-          <div>
-              <i className="fas fa-gift"></i> {this.state.birthdate}
-          </div>
+          <Card bg="light" style={{ width: '18rem', cursor: "pointer" }} >
+            <Card.Header>{this.state.name}</Card.Header>
+            <Card.Body>
+              <Card.Text>
+                  <i className="fas fa-gift"></i> {this.state.birthdate}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        <br />
         </div>
     )
   }

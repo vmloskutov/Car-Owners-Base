@@ -10,12 +10,19 @@ class ListInfo extends Component {
     }
   }
 
+  selectedId = (id) => {
+      console.log(id);
+      this.setState({selectedId: id})
+  }
+
+
   render() {
     console.log(this.props.current.name);
     if ((this.props.current.name === undefined || this.props.current.name === " ") && this.props.current.error === "" ) {
       return (
         <div>
-          <PersonsList list={this.props.info} />
+          <PersonsList list={this.props.info} selected={this.selectedId} />
+
         </div>
       )
     } else {

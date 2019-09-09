@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-//import Owners from './Owners'
 import { Link } from "react-router-dom";
 
 

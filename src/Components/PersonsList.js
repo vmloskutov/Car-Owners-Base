@@ -8,12 +8,18 @@ class PersonsList extends Component {
     }
   }
 
+  personRender(person) {
+    this.props.selected(person)
+  }
+
   render() {
       return (
         <div>
           {this.props.list.reverse().slice(0, 3).map((person, index) => {
             return(
-              <Person key={index} personId={person} />
+              <div key={index} onClick={() => {this.personRender(person)}}>
+                <Person  personId={person} />
+              </div>
             )
           })}
         </div>

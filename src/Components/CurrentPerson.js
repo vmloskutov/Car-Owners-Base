@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Error from './Error'
 import Cars from './Cars'
+import Card from 'react-bootstrap/Card';
+
 
 class CurrentPerson extends Component {
   constructor (props) {
@@ -13,15 +15,17 @@ class CurrentPerson extends Component {
       return (
         <div className="row">
           <div className="list col-6">
-            <div>
-                {this.props.data.name}
-            </div>
-            <div>
-                <i className="fas fa-gift"></i> {this.props.data.birthdate}
-            </div>
+            <Card bg="light">
+              <Card.Header>{this.props.data.name}</Card.Header>
+              <Card.Body>
+                <Card.Text>
+                    <i className="fas fa-gift"></i> {this.props.data.birthdate}
+                </Card.Text>
+              </Card.Body>
+            </Card>
           </div>
+          <br />
           <div className="autopark col-6">
-            Автопарк
               {(this.props.data.cars.length !== 0) ? <Cars cars={this.props.data.cars} /> : <Error error="-" />}
           </div>
         </div>
