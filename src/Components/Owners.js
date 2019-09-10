@@ -32,7 +32,7 @@ class Owners extends Component {
           axios
           .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
           .then(response => {
-            this.setState({ data : response.data })
+            this.setState({ data : response.data.reverse() })
           })
         }
 

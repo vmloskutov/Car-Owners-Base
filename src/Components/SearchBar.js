@@ -37,6 +37,14 @@ class SearchPage extends Component {
       });
   }
 
+  addUser() {
+    document.querySelector(".addUser").style.display = "block"
+  }
+
+   closeUser() {
+     document.querySelector(".addUser").style.display = "none"
+   }
+
 render() {
     const formStyle = {
          marginTop: "30px"
@@ -47,12 +55,38 @@ render() {
          <div className="form-group">
            <div className="searchbar-button">
              <label htmlFor="id">Поиск автовладельца</label>
-             <button className="btn btn-sm btn-primary btn-circle"><i className="fa fa-plus"></i></button>
+             <button type="button" className="btn btn-sm btn-primary btn-circle" onClick={this.addUser}><i className="fa fa-plus"></i></button>
            </div>
            <input type="number" className="form-control"
              name="id" value={this.state.id} onChange={this.handleUserInput} placeholder="ID пользователя"/>
          </div>
        </form>
+       <div className="addUser">
+         <form>
+          <div className="container addform">
+            <div className="row">
+              <label className="addlabel"> Добавление автовладельца </label>
+            </div>
+            <div className="row ml-1 mb-0">
+            <label className="inplbl ml-3"> Имя </label>
+            </div>
+            <div className="row ml-3">
+            <input className="inpt" type="text" placeholder="Имя" name="uname" required />
+            </div>
+            <div className="row ml-1">
+            <label className="inplbl ml-3"> День рождения </label>
+            </div>
+            <div className="row ml-3">
+            <input className="inpt" type="text" placeholder="День рождения" name="psw" required />
+            </div>
+          </div>
+          <div className="container buttons">
+
+            <button onClick={this.closeUser} type="button" className="cancelbtn">Отмена</button>
+            <button  type="button" className="okbtn">Ок</button>
+          </div>
+        </form>
+      </div>
       </div>
     );
   }

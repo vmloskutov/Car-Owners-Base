@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import "./App.css";
 import Owners from './Components/Owners'
+import Notfound from './Components/404'
 
 function selectButton(e) {
   let tablinks = document.getElementsByClassName("tablinks");
@@ -20,7 +21,9 @@ class App extends Component {
 
       <div className="container mt-3">
         <Switch>
-          <Redirect from="/" to="/owners" />
+          <Redirect exact from="/" to="/owners" />
+          <Redirect exact from="/catalog" to="/catalog" />
+          <Redirect exact from="/statistics" to="/statistics" />
         </Switch>
         <div className="tab">
           <Link to={`/owners`} className="link"><button className="tablinks active" onClick={selectButton}>Автовладельцы</button></Link>
@@ -32,6 +35,7 @@ class App extends Component {
             <Route path={`/owners`} component={Owners} />
             <Route path={`/catalog`} component={Comments} />
             <Route path={`/statistics`} component={Contact} />
+            <Route component={Notfound} />
           </Switch>
         </div>
       </div>
