@@ -22,7 +22,6 @@ class ListInfo extends Component {
       return (
         <div>
           <PersonsList list={this.props.info} selected={this.selectedId} />
-
         </div>
       )
     } else {

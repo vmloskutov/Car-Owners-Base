@@ -28,8 +28,9 @@ class SearchPage extends Component {
         this.props.onSearchBar(this.state);
       })
       .catch(error => {
+
         if (error.response.status === 400) {
-          this.props.onSearchBar(`Введите ID`)
+          this.props.onSearchBar(``)
         } else {
           this.props.onSearchBar(`Пользователь с ID = ${this.state.id} не найден`)
         }

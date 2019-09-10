@@ -13,17 +13,16 @@ class Cars extends Component {
 
   render() {
       return (
-        <Card bg="light">
-          <Card.Header>Автопарк</Card.Header>
-          <Card.Body>
-            <Card.Text>
-              <ul>
-                {this.props.cars.map((car, index) => {return(<li key={index}><Car info={car} /></li>)})}
-              </ul>
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
+        <div>
+          <Card bg="light">
+            <Card.Header>Автопарк</Card.Header>
+            <Card.Body>
+              <Card.Text>
+                  {this.props.cars.map((car, index) => {return(<li key={index}><Car info={car} /></li>)})}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+      </div>
     )
   }
 }
