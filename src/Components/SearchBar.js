@@ -42,24 +42,49 @@ class SearchPage extends Component {
     document.querySelector(".addUser").style.display = "block"
   }
 
-   okUser() {
+  nameValidation(e) {
+    let valid = /^[a-zA-Z ]+$/.test(e.target.value);
+    if (!valid) {
+      document.querySelector(".name-error").style.display = "block"
+      e.target.style.outline = "2px solid red"
+    } else {
+      document.querySelector(".name-error").style.display = "none"
+      e.target.style.outline = "2px solid green"
+
+    }
+  }
+
+   okUser(e) {
+     let valid = false;
      let newData = {}
-     document.querySelector(".addUser").style.display = "none"
      document.querySelectorAll(".inpt").forEach((input) => {
        if (input.name === "uname") {
-         newData.name = input.value
+         valid = /^[a-zA-Z ]+$/.test(input.value);
+         if (valid) {
+           newData.name = input.value
+         } else {
+           alert("invalid name")
+         }
          input.value = ""
        }
        if (input.name === "bd") {
          newData.birthdate = input.value
-         input.value = ""
+         if (valid) {
+           input.value = ""
+         }
        }
      });
-     axios({
-    	method: 'POST',
-    	url: 'http://172.30.215.172:8081/RESTfulWebApp/person',
-    	data: newData
-    });
+     if (valid) {
+       axios({
+       method: 'POST',
+       url: 'http://172.30.215.172:8081/RESTfulWebApp/person',
+       data: newData
+      });
+      document.querySelector(".addUser").style.display = "none"
+    } else {
+      e.preventDefault()
+    }
+
    }
 
    closeUser() {
@@ -95,8 +120,9 @@ render() {
               <label className="inplbl ml-3"> Имя </label>
             </div>
             <div className="row ml-3">
-              <input className="inpt" type="text" placeholder="Имя" name="uname" />
+              <input className="inpt" onChange={this.nameValidation} type="text" placeholder="Имя" name="uname" />
             </div>
+            <div className="name-error ml-4">В имени могут присутствовать только буквы</div>
             <div className="row ml-1">
               <label className="inplbl ml-3"> День рождения </label>
             </div>
