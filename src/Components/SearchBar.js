@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import InputMask from 'react-input-mask';
 
 class SearchPage extends Component {
   constructor (props) {
@@ -41,8 +42,31 @@ class SearchPage extends Component {
     document.querySelector(".addUser").style.display = "block"
   }
 
+   okUser() {
+     let newData = {}
+     document.querySelector(".addUser").style.display = "none"
+     document.querySelectorAll(".inpt").forEach((input) => {
+       if (input.name === "uname") {
+         newData.name = input.value
+         input.value = ""
+       }
+       if (input.name === "bd") {
+         newData.birthdate = input.value
+         input.value = ""
+       }
+     });
+     axios({
+    	method: 'POST',
+    	url: 'http://172.30.215.172:8081/RESTfulWebApp/person',
+    	data: newData
+    });
+   }
+
    closeUser() {
      document.querySelector(".addUser").style.display = "none"
+     document.querySelectorAll(".inpt").forEach((input) => {
+       input.value = ""
+     });
    }
 
 render() {
@@ -68,22 +92,21 @@ render() {
               <label className="addlabel"> Добавление автовладельца </label>
             </div>
             <div className="row ml-1 mb-0">
-            <label className="inplbl ml-3"> Имя </label>
+              <label className="inplbl ml-3"> Имя </label>
             </div>
             <div className="row ml-3">
-            <input className="inpt" type="text" placeholder="Имя" name="uname" required />
+              <input className="inpt" type="text" placeholder="Имя" name="uname" />
             </div>
             <div className="row ml-1">
-            <label className="inplbl ml-3"> День рождения </label>
+              <label className="inplbl ml-3"> День рождения </label>
             </div>
             <div className="row ml-3">
-            <input className="inpt" type="text" placeholder="День рождения" name="psw" required />
+            <InputMask className="inpt" mask="99.99.9999" name="bd" placeholder="День рождения" />
             </div>
           </div>
           <div className="container buttons">
-
             <button onClick={this.closeUser} type="button" className="cancelbtn">Отмена</button>
-            <button  type="button" className="okbtn">Ок</button>
+            <button onClick={this.okUser} type="submit" className="okbtn" onSubmit={this.formSubmit}>Ок</button>
           </div>
         </form>
       </div>
