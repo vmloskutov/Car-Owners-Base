@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PersonsList from './PersonsList'
 import Error from './Error'
 import CurrentPerson from './CurrentPerson'
-import axios from "axios"
+import Button from 'react-bootstrap/Button';
 
 class ListInfo extends Component {
   constructor (props) {
@@ -15,21 +15,22 @@ class ListInfo extends Component {
     this.setState({...id})
   }
 
-
+  getBack() {
+    this.setState({id : null})
+  }
 
 
   render() {
     console.log(this.state);
-    if (this.state.id !== undefined) {
-      console.log(1);
+    if (this.state.id !== undefined && this.state.id !== null && this.props.current.name === undefined) {
       return(
         <div>
+          <Button onClick={(() => {this.getBack()})} className="mb-3" variant="outline-secondary">Назад</Button>
           <CurrentPerson data={this.state} />
         </div>
       )
     }
-    console.log(this.state.selectedId);
-    if ((this.props.current.name === undefined || this.props.current.name === " ") && this.props.current.error === "" ) {
+    if ((this.props.current.name === undefined || this.props.current.name === "") && this.props.current.error === "" ) {
       return (
         <div>
           <PersonsList list={this.props.info} selectedTable={this.selectedId} />

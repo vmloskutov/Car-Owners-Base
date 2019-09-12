@@ -15,7 +15,7 @@ class Owners extends Component {
   handleId = (child) => {
       if (typeof child === "string") {
         if (child === "") {
-          this.setState({name : undefined})
+          this.setState({name : undefined, error: ""})
         }
         this.setState({error: child});
       } else {

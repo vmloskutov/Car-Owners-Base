@@ -12,7 +12,6 @@ class CurrentPerson extends Component {
   }
 
   render() {
-    console.log(2);
       return (
         <div className="row">
           <div className="list col-6">

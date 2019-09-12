@@ -18,7 +18,7 @@ class Cars extends Component {
             <Card.Header>Автопарк</Card.Header>
             <Card.Body>
               <Card.Text>
-                  {this.props.cars.map((car, index) => {return(<li key={index}><Car info={car} /></li>)})}
+                  {this.props.cars.map((car, index) => {return(<div key={index}><Car info={car} /></div>)})}
               </Card.Text>
             </Card.Body>
           </Card>
