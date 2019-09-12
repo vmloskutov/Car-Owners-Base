@@ -30,10 +30,14 @@ class Catalog extends Component {
   }
 
   addCarButton = (child) => {
+    this.setState({selectedModel: child.target.innerHTML })
     let posY = child.target.getBoundingClientRect().top
-    console.log(this.state.selectedBrand, child.target.innerHTML);
     document.querySelector(".add-car").style.display = "block"
     document.querySelector(".add-car").style.marginTop =posY - 120 +"px"
+  }
+
+  addCarToUser = () => {
+    console.log(this.state.selectedBrand + "-" + this.state.selectedModel);
   }
 
   render() {
@@ -45,10 +49,9 @@ class Catalog extends Component {
                 {this.state.data ? <FilteringList className="brand-item pl-2" content={this.state.data} selected={this.modelWindowRender}/> : null}
             </div>
             <div className="models-window  col-3 ml-3 mt-3">
-                {console.log(this.state.models)}
                 {this.state.models ?  <FilteringListModels className="brand-item pl-2" content={this.state.models} selected={this.addCarButton}/> : null}
             </div>
-            <button type="button" className="add-car btn btn-sm btn-primary btn-circle" onClick={this.addUser}><i className="fa fa-plus"></i></button>
+            <button type="button" className="add-car btn btn-sm btn-primary btn-circle" onClick={this.addCarToUser}><i className="fa fa-plus"></i></button>
           </div>
         </div>)
   }

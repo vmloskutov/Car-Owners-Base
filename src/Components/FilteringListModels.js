@@ -15,7 +15,6 @@ export default class FilteringListModels extends React.Component {
     }
 
     componentWillMount = () => {
-      console.log(this.props.content);
       this.setState({
           initialItems: this.props.content[0],
           items: this.props.content[0]
