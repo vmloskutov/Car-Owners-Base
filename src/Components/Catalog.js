@@ -23,9 +23,14 @@ class Catalog extends Component {
   }
 
   modelWindowRender = (child) => {
+    this.setState({selectedBrand: child})
     let models = this.state.data.filter(item => item.brand === child).map(item => item.models)
     document.querySelector(".models-window").style.display = "block"
     this.setState({models: models})
+  }
+
+  addCarButton = (child) => {
+    console.log(this.state.selectedBrand, child.target.innerHTML);
   }
 
   render() {
@@ -38,7 +43,7 @@ class Catalog extends Component {
             </div>
             <div className="models-window  col-3 ml-3 mt-3">
                 {console.log(this.state.models)}
-                {this.state.models ?  <FilteringListModels className="brand-item pl-2" content={this.state.models} selected={this.modelWindowRender}/> : null}
+                {this.state.models ?  <FilteringListModels className="brand-item pl-2" content={this.state.models} selected={this.addCarButton}/> : null}
             </div>
           </div>
         </div>)

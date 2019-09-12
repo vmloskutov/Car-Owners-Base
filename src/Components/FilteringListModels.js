@@ -17,16 +17,18 @@ export default class FilteringListModels extends React.Component {
     componentWillMount = () => {
       console.log(this.props.content);
       this.setState({
-          initialItems: this.props.content,
-          items: this.props.content
+          initialItems: this.props.content[0],
+          items: this.props.content[0]
       })
     }
     componentWillReceiveProps = (nextProps) => {
       this.setState({
-          initialItems: nextProps.content,
-          items: nextProps.content
+          initialItems: nextProps.content[0],
+          items: nextProps.content[0]
       })
     }
+
+
 
     render() {
       return (
@@ -35,9 +37,9 @@ export default class FilteringListModels extends React.Component {
                 <input className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
           </form>
           <div className="brands-window mt-3 px-0">
-            {this.state.items[0].map((item, index) => {
+            {this.state.items.map((item, index) => {
                     return (
-                      <div onClick={() => {}} className="models-item" key={index}>
+                      <div onMouseEnter={e => {this.props.selected(e)}} className="model-item" key={index}>
                         {item}
                       </div>
                   )
