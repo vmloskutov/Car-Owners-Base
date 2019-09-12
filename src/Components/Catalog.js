@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import FilteringList from './FilteringList'
+import FilteringListModels from './FilteringListModels'
 
 class Catalog extends Component {
   constructor (props) {
@@ -20,9 +22,8 @@ class Catalog extends Component {
     })
   }
 
-  modelWindowRender = (e) => {
-    let models = this.state.data.filter(item => item.brand === e.target.innerHTML).map(item => item.models)
-    console.log(models);
+  modelWindowRender = (child) => {
+    let models = this.state.data.filter(item => item.brand === child).map(item => item.models)
     document.querySelector(".models-window").style.display = "block"
     this.setState({models: models})
   }
@@ -32,24 +33,12 @@ class Catalog extends Component {
         <div className="">
           Выберите Автомобиль
           <div className="row">
-            <div className="brands-window col-3 mt-3 ml-3 px-0">
-              {this.state.data ? this.state.data.map((brand, index) => {
-                return(
-                  <div onClick={this.modelWindowRender} className="brand-item pl-2" key={index}>
-                    {brand.brand}
-                  </div>
-                )
-              }) : null}
+            <div className="col-3 ml-3 mt-3">
+                {this.state.data ? <FilteringList className="brand-item pl-2" content={this.state.data} selected={this.modelWindowRender}/> : null}
             </div>
-            <div className="models-window col-3 mt-3 ml-5 px-0">
-              {console.log(this.state.models)}
-                {this.state.models ? this.state.models[0].map((model, index) => {
-                return(
-                  <div className="model-item pl-2" key={index}>
-                    {model}
-                  </div>
-                )
-              }): null}
+            <div className="models-window  col-3 ml-3 mt-3">
+                {console.log(this.state.models)}
+                {this.state.models ?  <FilteringListModels className="brand-item pl-2" content={this.state.models} selected={this.modelWindowRender}/> : null}
             </div>
           </div>
         </div>)

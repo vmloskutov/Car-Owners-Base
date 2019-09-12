@@ -188,6 +188,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .brands-window {
+  width: 100%;
   height: 500px;
   border: 1px solid black;
   overflow-y:scroll;
@@ -199,11 +200,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .models-window {
   display: none;
-  height: 500px;
-  border: 1px solid black;
-  overflow-y:scroll;
 }
 
 .model-item:hover {
   background-color: grey;
+}
+
+.cars-search {
+  border: 1px solid black;
+  width: 100%;
 }
