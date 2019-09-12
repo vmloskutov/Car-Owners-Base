@@ -210,3 +210,9 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid black;
   width: 100%;
 }
+
+.add-car {
+  display: none;
+  margin-top: 58px;
+  height: 30px;
+}

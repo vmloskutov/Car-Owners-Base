@@ -30,7 +30,7 @@ export default class FilteringList extends React.Component {
           <div className="brands-window mt-3 px-0">
             {
                 this.state.items.map((item, index) => {
-                    return <div onClick={() => {this.props.selected(item.brand)}} className="brand-item" key={index}>{item.brand}</div>
+                    return <div onClick={() => {this.props.selected(item.brand)}} className="brand-item pl-2" key={index}>{item.brand}</div>
                 })
             }
             </div>

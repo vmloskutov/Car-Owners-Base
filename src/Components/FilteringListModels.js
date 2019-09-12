@@ -39,7 +39,7 @@ export default class FilteringListModels extends React.Component {
           <div className="brands-window mt-3 px-0">
             {this.state.items.map((item, index) => {
                     return (
-                      <div onMouseEnter={e => {this.props.selected(e)}} className="model-item" key={index}>
+                      <div onMouseEnter={e => {this.props.selected(e)}} className="model-item pl-2" key={index}>
                         {item}
                       </div>
                   )
