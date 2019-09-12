@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PersonsList from './PersonsList'
 import Error from './Error'
 import CurrentPerson from './CurrentPerson'
+import axios from "axios"
 
 class ListInfo extends Component {
   constructor (props) {
@@ -11,17 +12,27 @@ class ListInfo extends Component {
   }
 
   selectedId = (id) => {
-      console.log(id);
-      this.setState({selectedId: id})
+    this.setState({...id})
   }
 
 
+
+
   render() {
-    console.log(this.props.current.name);
+    console.log(this.state);
+    if (this.state.id !== undefined) {
+      console.log(1);
+      return(
+        <div>
+          <CurrentPerson data={this.state} />
+        </div>
+      )
+    }
+    console.log(this.state.selectedId);
     if ((this.props.current.name === undefined || this.props.current.name === " ") && this.props.current.error === "" ) {
       return (
         <div>
-          <PersonsList list={this.props.info} selected={this.selectedId} />
+          <PersonsList list={this.props.info} selectedTable={this.selectedId} />
         </div>
       )
     } else {
@@ -31,6 +42,7 @@ class ListInfo extends Component {
         </div>
       )
     }
+
   }
 }
 

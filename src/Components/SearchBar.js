@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from "axios";
-import InputMask from 'react-input-mask';
 import DatePicker from "react-datepicker";
 var moment = require('moment');
 
@@ -24,11 +23,9 @@ class SearchPage extends Component {
     this.setState({
       startDate: date
     });
-    let valid = true
     var now = moment().format("YYYY-MM-DD");
     let checkDate = moment(date).format("YYYY-MM-DD")
     if (moment(checkDate).isAfter(now)) {
-      valid = false
       document.querySelector(".date-error").style.display = "block"
       document.getElementById("bd").style.outline = "2px solid red"
     } else {
@@ -92,7 +89,6 @@ class SearchPage extends Component {
          let validDate = true
          var now = moment().format("YYYY-MM-DD");
          let checkDate = moment(input.value, "DD.MM.YYYY").format("YYYY-MM-DD")
-         console.log(now, checkDate,moment(checkDate).isAfter(now) );
          if (moment(checkDate).isAfter(now)) {
            validDate = false
            input.value = ""

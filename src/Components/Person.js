@@ -26,10 +26,14 @@ class Person extends Component {
       })
   }
 
+  personRender() {
+    this.props.selectedInfo(this.state)
+  }
+
   render() {
       return (
         <div>
-          <Card bg="light" style={{ width: '18rem', cursor: "pointer" }} >
+          <Card onClick={() => {this.personRender()} } bg="light" style={{ width: '18rem', cursor: "pointer" }} >
             <Card.Header>{this.state.name}</Card.Header>
             <Card.Body>
               <Card.Text>

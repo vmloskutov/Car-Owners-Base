@@ -8,17 +8,18 @@ class PersonsList extends Component {
     }
   }
 
-  personRender(person) {
-    this.props.selected(person)
+  personRender = (child) => {
+    this.props.selectedTable(child)
   }
+
 
   render() {
       return (
         <div>
           {this.props.list.slice(0, 3).map((person, index) => {
             return(
-              <div key={index} onClick={() => {this.personRender(person)}}>
-                <Person  personId={person} />
+              <div key={index}>
+                <Person  personId={person} selectedInfo={this.personRender}/>
               </div>
             )
           })}
