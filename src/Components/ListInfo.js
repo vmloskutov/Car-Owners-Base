@@ -21,7 +21,6 @@ class ListInfo extends Component {
 
 
   render() {
-    console.log(this.state);
     if (this.state.id !== undefined && this.state.id !== null && this.props.current.name === undefined) {
       return(
         <div>

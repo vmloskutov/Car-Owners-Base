@@ -186,3 +186,24 @@ input[type=number]::-webkit-outer-spin-button {
 .datepicker {
    width: 94%;
 }
+
+.brands-window {
+  height: 500px;
+  border: 1px solid black;
+  overflow-y:scroll;
+}
+
+.brand-item:hover {
+  background-color: grey;
+}
+
+.models-window {
+  display: none;
+  height: 500px;
+  border: 1px solid black;
+  overflow-y:scroll;
+}
+
+.model-item:hover {
+  background-color: grey;
+}

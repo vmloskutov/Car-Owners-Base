@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import "./App.css";
 import Owners from './Components/Owners'
+import Catalog from './Components/Catalog'
 import Notfound from './Components/404'
 
 function selectButton(e) {
@@ -12,8 +13,7 @@ function selectButton(e) {
   e.currentTarget.className += " active";
 }
 
-const Comments = () => <div>You're on the Comments Tab</div>;
-const Contact = () => <div>You're on the Contact Tab</div>;
+const Contact = () => <div>Статистика</div>;
 class App extends Component {
 
   render() {
@@ -27,13 +27,13 @@ class App extends Component {
         </Switch>
         <div className="tab">
           <Link to={`/owners`} className="link"><button className="tablinks active" onClick={selectButton}>Автовладельцы</button></Link>
-          <Link to={`/catalog`} className="link"><button className="tablinks" onClick={selectButton}>Каталог авто</button></Link>
+          <Link to={`/cars`} className="link"><button className="tablinks" onClick={selectButton}>Каталог авто</button></Link>
           <Link to={`/statistics`} className="link"><button className="tablinks" onClick={selectButton}>Статистика</button></Link>
         </div>
         <div className="info">
           <Switch>
             <Route path={`/owners`} component={Owners} />
-            <Route path={`/catalog`} component={Comments} />
+            <Route path={`/cars`} component={Catalog} />
             <Route path={`/statistics`} component={Contact} />
             <Route component={Notfound} />
           </Switch>
