@@ -230,7 +230,7 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #DDDDDD;
   position: absolute;
   width: 600px;
-  height: 350px;
+  height: 370px;
   left: 33%;
   top: 30%
 }
@@ -259,4 +259,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .last-persons:hover {
   background-color: grey;
+}
+
+.add-car-error {
+  display: none;
+  color: red;
+  font-size: 14px;
 }

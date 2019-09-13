@@ -17,23 +17,31 @@ class Catalog extends Component {
 
   okCar = (e) => {
     e.preventDefault();
-    let newData = {
-      model: this.state.selectedBrand + "-" + this.state.selectedModel,
-      horsepower : "100",
-      ownerId : this.state.selectedOption.label
-    }
-    axios({
-    method: 'POST',
-    url: 'http://172.30.215.172:8081/RESTfulWebApp/car',
-    data: newData
-   });
-   this.setState({selectedOption:null})
-   document.querySelector(".add-car-form").style.display = "none"
+    console.log(this.state.selectedOption);
+    if (this.state.selectedOption) {
+      let newData = {
+        model: this.state.selectedBrand + "-" + this.state.selectedModel,
+        horsepower : "100",
+        ownerId : this.state.selectedOption.label
+      }
+      axios({
+      method: 'POST',
+      url: 'http://172.30.215.172:8081/RESTfulWebApp/car',
+      data: newData
+     });
+     this.setState({selectedOption:null})
+     document.querySelector(".add-car-form").style.display = "none"
+   } else {
+     this.setState({selectedOption:null})
+     document.querySelector(".add-car-error").style.display = "block"
+   }
+
   }
 
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
+    this.state.selectedOption ? document.querySelector(".add-car-error").style.display="none" : document.querySelector(".add-car-error").style.display="block"
   };
 
   componentDidMount() {
@@ -94,7 +102,7 @@ class Catalog extends Component {
       value: e.target.innerHTML,
       label: e.target.innerHTML
     }
-
+    document.querySelector(".add-car-error").style.display="none"
     this.setState({selectedOption: selectedId})
   }
 
@@ -127,6 +135,7 @@ class Catalog extends Component {
                   options={options}
                   placeholder="Поиск пользователя по ID"
                   />
+                  <div className="add-car-error ml-3">Выберите ID пользователя</div>
                   <div className="mt-3 ml-3">
                   Последние добавленные:
                     {this.state.ids ? this.state.ids.slice(0,3).map((person, index) => {
