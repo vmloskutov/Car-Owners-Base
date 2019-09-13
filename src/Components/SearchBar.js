@@ -142,8 +142,9 @@ render() {
        <div className="addUser">
          <form>
           <div className="container addform">
-            <div className="row">
+            <div className="row d-flex justify-content-between">
               <label className="addlabel"> Добавление автовладельца </label>
+              <button type="button" onClick={this.closeUser} className="close"><i className="fas fa-times"></i></button>
             </div>
             <div className="row ml-1 mb-0">
               <label className="inplbl ml-3"> Имя </label>
