@@ -21,13 +21,14 @@ export default class FilteringListModels extends React.Component {
       })
     }
     componentWillReceiveProps = (nextProps) => {
-      this.setState({
-          initialItems: nextProps.content[0],
-          items: nextProps.content[0]
-      })
+      if(this.state.initialItems !== nextProps.content[0]) {
+        console.log(11);
+        this.setState({
+            initialItems: nextProps.content[0],
+            items: nextProps.content[0]
+        })
+      }
     }
-
-
 
     render() {
       return (
