@@ -47,7 +47,6 @@ class SearchPage extends Component {
         this.props.onSearchBar(this.state);
       })
       .catch(error => {
-
         if (error.response.status === 400) {
           this.props.onSearchBar(``)
         } else {

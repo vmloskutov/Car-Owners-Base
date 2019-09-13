@@ -5,7 +5,7 @@ import SingleSelect from './SingleSelect'
 import FilteringListModels from './FilteringListModels'
 import Select from 'react-select'
 
-const options = [];
+let options = [];
 
 class Catalog extends Component {
   constructor (props) {
@@ -49,6 +49,7 @@ class Catalog extends Component {
     }
 
   getUserData(){
+    options = []
     axios
       .get('http://172.30.215.172:8081/RESTfulWebApp/getpersonlist')
       .then(response => {

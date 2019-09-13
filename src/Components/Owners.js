@@ -10,6 +10,7 @@ class Owners extends Component {
       data: [],
       error: ""
     }
+
   }
 
   handleId = (child) => {
@@ -21,6 +22,12 @@ class Owners extends Component {
       } else {
         this.setState({error: ""});
         this.setState({...child});
+      }
+      if (child.id !== undefined) {
+        console.log(this.props.history);
+        //this.props.history.goBack()
+        this.props.history.location = `owners/${child.id}`
+
       }
     }
 
