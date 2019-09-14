@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios"
 import FilteringList from './FilteringList'
-import SingleSelect from './SingleSelect'
 import FilteringListModels from './FilteringListModels'
 import Select from 'react-select'
 
@@ -95,6 +94,7 @@ class Catalog extends Component {
   }
 
   addCarToUser = () => {
+
     document.querySelector(".add-car-form").style.display = "block"
   }
 
@@ -108,7 +108,6 @@ class Catalog extends Component {
   }
 
   render() {
-    console.log(this.state.selectedOption);
       return (
         <div className="">
           <div className="ml-3">Выберите Автомобиль</div>

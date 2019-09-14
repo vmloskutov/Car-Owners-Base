@@ -24,8 +24,13 @@ export default class FilteringList extends React.Component {
     render() {
       return (
         <div>
-          <form >
-                <input className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
+          <form onSubmit={e => {
+            console.log(1);
+            e.preventDefault()
+          }}>
+                <input onSubmit={e => {
+                  e.preventDefault()
+                }} className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
           </form>
           <div className="brands-window mt-3 px-0">
             {

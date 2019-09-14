@@ -22,7 +22,6 @@ export default class FilteringListModels extends React.Component {
     }
     componentWillReceiveProps = (nextProps) => {
       if(this.state.initialItems !== nextProps.content[0]) {
-        console.log(11);
         this.setState({
             initialItems: nextProps.content[0],
             items: nextProps.content[0]
@@ -33,7 +32,10 @@ export default class FilteringListModels extends React.Component {
     render() {
       return (
         <div>
-          <form >
+          <form onSubmit={e => {
+            console.log(1);
+            e.preventDefault()
+          }}>
                 <input className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
           </form>
           <div className="brands-window mt-3 px-0">
