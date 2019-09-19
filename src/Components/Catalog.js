@@ -40,7 +40,7 @@ class Catalog extends Component {
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
-    this.state.selectedOption ? document.querySelector(".add-car-error").style.display="none" : document.querySelector(".add-car-error").style.display="block"
+    selectedOption ? document.querySelector(".add-car-error").style.display="none" : document.querySelector(".add-car-error").style.display="block"
   };
 
   componentDidMount() {
