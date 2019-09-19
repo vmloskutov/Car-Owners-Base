@@ -16,6 +16,9 @@ class SearchPage extends Component {
     const name = e.target.name;
     const value = e.target.value;
     this.setState({[name]: value});
+    if (value === "") {
+      this.props.onSearchBar(``)
+    }
   }
 
   handleChange = (date, e) => {
