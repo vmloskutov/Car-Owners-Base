@@ -34,7 +34,7 @@ class Catalog extends Component {
        document.querySelector(".success").style.display = "none"
        console.log(this.state.selectedOption);
        this.setState({selectedOption:null})
-     }, 3000)
+     }, 1000)
 
    } else {
      this.setState({selectedOption:null})

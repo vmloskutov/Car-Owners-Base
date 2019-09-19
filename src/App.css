@@ -279,3 +279,13 @@ input[type=number]::-webkit-outer-spin-button {
   left: 37%;
   top: 37%
 }
+
+.datalabelInside {
+position:absolute;
+left:-150px;
+}
+
+ #datalabelInside {
+color:#fff;
+left:-150px;
+}
