@@ -28,8 +28,14 @@ class Catalog extends Component {
       url: 'http://172.30.215.172:8081/RESTfulWebApp/car',
       data: newData
      });
-     this.setState({selectedOption:null})
      document.querySelector(".add-car-form").style.display = "none"
+     document.querySelector(".success").style.display = "block"
+     setTimeout(() => {
+       document.querySelector(".success").style.display = "none"
+       console.log(this.state.selectedOption);
+       this.setState({selectedOption:null})
+     }, 3000)
+
    } else {
      this.setState({selectedOption:null})
      document.querySelector(".add-car-error").style.display = "block"
@@ -156,6 +162,11 @@ class Catalog extends Component {
 
              </form>
          </div>
+         <form>
+          <div className="success container">
+            Автомобиль успешно добавлен пользователю c id = {this.state.selectedOption ? this.state.selectedOption.label : null}
+           </div>
+          </form>
         </div>)
   }
 }

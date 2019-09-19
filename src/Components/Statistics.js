@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios"
-
+import { render } from 'react-dom'
+import Highcharts from 'highcharts'
+import HighchartsReact from 'highcharts-react-official'
 
 
 class Statistics extends Component {
@@ -10,20 +12,59 @@ class Statistics extends Component {
     }
   }
 
+
+
   getData = () => {
     axios
       .get('http://172.30.215.172:8081/RESTfulWebApp/statistics')
       .then(response => {
         console.log(response.data);
-        let data = []
-        data.push(response.data.personcount)
-        data.push(response.data.carcount)
-        data.push(response.data.uniquevendorcount)
-        this.setState({data : data})
+        let newData = []
+        newData.push(response.data.personcount)
+        newData.push(response.data.carcount)
+        newData.push(response.data.uniquevendorcount)
+        let options = {
+              chart: {
+                  plotBackgroundColor: null,
+                  plotBorderWidth: null,
+                  plotShadow: false,
+                  type: 'pie'
+              },
+              title: {
+                  text: 'Статистика'
+              },
+              tooltip: {
+                  pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+              },
+              plotOptions: {
+                  pie: {
+                      allowPointSelect: true,
+                      cursor: 'pointer',
+                      dataLabels: {
+
+                          enabled: true,
+                          format: '<b>{point.name}</b>', // : {point.percentage:.1f} %
+                      }
+                  }
+              },
+              series: [{
+                  name: '',
+                  colorByPoint: true,
+                  data: [{
+                      name: `Количество пользователей, зарегстрированных в системе: ${newData[0]}`,
+                      y: newData[0],
+                      }, {
+                      name: `Количество автомобилей, зарегистрированных в системе: ${newData[1]}`,
+                      y: newData[1]
+                  }]
+              }]
+          }
+        this.setState({options : options})
+
       })
   }
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.getData()
 
   }
@@ -31,7 +72,11 @@ class Statistics extends Component {
   render() {
       return (
         <div>
-          <div className="ml-3">Статистика</div>
+        {this.state.options ? <HighchartsReact
+            highcharts={Highcharts}
+            options={this.state.options}
+          /> : null}
+
         </div>
     )
 
