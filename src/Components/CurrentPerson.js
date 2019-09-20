@@ -21,7 +21,7 @@ class CurrentPerson extends Component {
               <Card.Header>{this.props.data.name}</Card.Header>
               <Card.Body>
                 <Card.Text>
-                    <i className="fas fa-gift"></i> {this.props.data.birthdate}
+                    Дата рождения: {this.props.data.birthdate}
                 </Card.Text>
               </Card.Body>
             </Card>

@@ -13,8 +13,6 @@ function selectButton(e) {
   }
   e.currentTarget.className += " active";
 }
-
-const Contact = () => <div>Статистика</div>;
 class App extends Component {
 
 
@@ -57,7 +55,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container mt-3">
+      <div className="container mt-3 global">
         <Switch>
           <Redirect exact from="/owners" to="/owners/id" />
           <Redirect exact from="/" to="/owners/id" />

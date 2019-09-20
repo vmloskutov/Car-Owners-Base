@@ -36,7 +36,7 @@ export default class FilteringListModels extends React.Component {
             console.log(1);
             e.preventDefault()
           }}>
-                <input className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
+                <input className="cars-search pl-2" type="text" placeholder="Поиск" onChange={this.filterList}/>
           </form>
           <div className="brands-window mt-3 px-0">
             {this.state.items.map((item, index) => {

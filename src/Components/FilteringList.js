@@ -30,7 +30,7 @@ export default class FilteringList extends React.Component {
           }}>
                 <input onSubmit={e => {
                   e.preventDefault()
-                }} className="cars-search" type="text" placeholder="Поиск" onChange={this.filterList}/>
+                }} className="cars-search pl-2" type="text" placeholder="Поиск" onChange={this.filterList}/>
           </form>
           <div className="brands-window mt-3 px-0">
             {

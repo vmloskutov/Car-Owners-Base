@@ -13,7 +13,7 @@ class Cars extends Component {
 
   render() {
       return (
-        <div>
+        <div className="cars-card">
           <Card bg="light">
             <Card.Header>Автопарк</Card.Header>
             <Card.Body>

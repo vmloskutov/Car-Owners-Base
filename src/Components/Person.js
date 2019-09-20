@@ -37,7 +37,7 @@ class Person extends Component {
             <Card.Header>{this.state.name}</Card.Header>
             <Card.Body>
               <Card.Text>
-                  <i className="fas fa-gift"></i> {this.state.birthdate}
+                  Дата рождения: {this.state.birthdate}
               </Card.Text>
             </Card.Body>
           </Card>
