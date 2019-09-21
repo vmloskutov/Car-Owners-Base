@@ -76,8 +76,10 @@ class Owners extends Component {
   render() {
     this.checkUrl()
     return (
+
       <div>
-        <SearchBar onSearchBar={this.handleId} />
+        <div className="section-label">Автовладельцы</div>
+        <SearchBar className="searchbar" onSearchBar={this.handleId} />
         <div className="list-info">
           {this.state.data ? <ListInfo info={this.state.data} current={this.state} /> : <ListInfo /> }
         </div>

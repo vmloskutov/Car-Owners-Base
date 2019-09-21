@@ -55,19 +55,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container mt-3 global">
+      <div className=" global row">
         <Switch>
           <Redirect exact from="/owners" to="/owners/id" />
           <Redirect exact from="/" to="/owners/id" />
           <Redirect exact from="/catalog" to="/cars" />
           <Redirect exact from="/statistics" to="/statistics" />
         </Switch>
-        <div className="tab">
-          <Link to={`/owners/id`} className="link"><button className="tablinks owners" onClick={selectButton}>Автовладельцы</button></Link>
+        <div className="tab col-2 left-menu d-flex">
+          <div className="base-name">База<br/> Автовладельцев</div>
+          <hr className="hr-main"/>
+          <Link to={`/owners/id`} className="link first-link"><button className="tablinks owners" onClick={selectButton}>Автовладельцы</button></Link>
           <Link to={`/cars`} className="link"><button className="tablinks cars" onClick={selectButton}>Каталог авто</button></Link>
           <Link to={`/statistics`} className="link"><button className="tablinks statistics" onClick={selectButton}>Статистика</button></Link>
         </div>
-        <div className="info">
+        <div className="info col-8 offset-1">
           <Switch>
             <Route path={`/owners/:id`} component={Owners} />
             <Route path={`/cars`} component={Catalog} onLoad={() => {console.log(111)}}/>
