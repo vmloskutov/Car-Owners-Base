@@ -38,6 +38,13 @@ body > #root > div {
   }
 }
 
+.addUser-link {
+  margin-top: 3px;
+  color: #4E4FC3;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 .btn:focus {
   color: white;
   box-shadow: 0 0 0 0.2rem #463E3F;
@@ -52,7 +59,8 @@ body > #root > div {
 }
 
 .btn-circle:hover{
-  background-color: #4E4FC3;
+  color: white;
+  box-shadow: 0 0 0 0.2rem #4E4FC3;
 }
 
 .searchbar-button {
@@ -335,7 +343,7 @@ left:-150px;
 }
 
 .form-control:focus {
-box-shadow: 0 0 0 0.2rem #565051;
+box-shadow: 0 0 0 0.2rem #4E4FC3;
 }
 
 .card {

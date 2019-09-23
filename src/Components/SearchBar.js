@@ -59,7 +59,7 @@ render() {
          <div className="form-group">
            <div className="searchbar-button">
              <label htmlFor="id">Поиск автовладельца</label>
-             <button type="button" className="btn btn-sm btn-circle" onClick={this.addUser}><i className="fa fa-plus"></i></button>
+             <div className="d-flex"><div className="addUser-link" onClick={this.addUser}>Добавить пользователя</div> <button type="button" className="btn btn-sm btn-circle" onClick={this.addUser}><i className="fa fa-plus"></i></button></div>
            </div>
            <input type="number" className="form-control"
              name="id" value={this.state.id} onChange={this.handleUserInput} placeholder="ID пользователя"/>
