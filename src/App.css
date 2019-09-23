@@ -76,7 +76,8 @@ body > #root > div {
 }
 
 .info {
-  padding: 20px;
+  padding: 0;
+  /* padding: 20px; */
 }
 
 .tab {

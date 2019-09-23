@@ -116,6 +116,7 @@ class Catalog extends Component {
   render() {
       return (
         <div className="">
+          <div className="section-label mt-3">Каталог автомобилей</div>
           <div className="ml-3">Выберите Автомобиль</div>
           <div className="row">
             <div className="col-3 ml-3 mt-3">

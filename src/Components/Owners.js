@@ -43,6 +43,10 @@ class Owners extends Component {
        }
        if (input.name === "bd") {
          let validDate = true
+         if (!input.value) {
+           validDate = false
+           valid = false
+         }
          var now = moment().format("YYYY-MM-DD");
          let checkDate = moment(input.value, "DD.MM.YYYY").format("YYYY-MM-DD")
          if (moment(checkDate).isAfter(now)) {
@@ -78,6 +82,7 @@ class Owners extends Component {
      document.querySelector(".addUser").style.display = "none"
      document.querySelectorAll(".inpt").forEach((input) => {
        input.value = ""
+       input.style.outline = "none";
      });
    }
 
@@ -158,6 +163,11 @@ class Owners extends Component {
 
   render() {
     this.checkUrl()
+    // if (document.querySelector(".addUser")) {
+    //   if (document.querySelector(".addUser").style.display === "block") {
+    //     this.props.history.push("/add")
+    //   }
+    // }
     return (
 
       <div>
