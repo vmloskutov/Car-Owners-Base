@@ -44,9 +44,10 @@ class SearchPage extends Component {
       });
   }
 
-  addUser() {
+  addUser = () => {
     document.querySelector(".addUser").style.display = "block"
     document.querySelector(".blur").style.opacity = 0.3
+    this.props.add();
   }
 
 render() {

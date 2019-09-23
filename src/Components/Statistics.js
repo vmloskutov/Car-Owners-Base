@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from "axios"
-import { render } from 'react-dom'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
@@ -23,7 +22,6 @@ class Statistics extends Component {
         newData.push(response.data.personcount)
         newData.push(response.data.carcount)
         newData.push(response.data.uniquevendorcount)
-        let counter = 0;
         let options = {
           chart: {
               type: 'pie',
@@ -67,7 +65,7 @@ class Statistics extends Component {
                       color:'white',
                       distance: -20,
                       formatter: function () {
-                          if(this.percentage!=0)  return Math.round(this.percentage)  + '%';
+                          if(this.percentage !== 0)  return Math.round(this.percentage)  + '%';
 
                       }
                   }
@@ -83,7 +81,7 @@ class Statistics extends Component {
                       verticalAlign:'top',
                       distance: 20,
                       formatter: function () {
-                          if(this.percentage!=0)  return this.point.name;
+                          if(this.percentage !== 0)  return this.point.name;
 
                       }
                   }

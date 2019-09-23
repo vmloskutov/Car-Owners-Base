@@ -28,7 +28,7 @@ class Owners extends Component {
     }
   }
 
-   okUser(e) {
+   okUser = (e) => {
      let valid = false;
      let newData = {}
      document.querySelectorAll(".inpt").forEach((input) => {
@@ -67,9 +67,10 @@ class Owners extends Component {
        method: 'POST',
        url: 'http://172.30.215.172:8081/RESTfulWebApp/person',
        data: newData
-      });
+     })
       document.querySelector(".blur").style.opacity = 1
       document.querySelector(".addUser").style.display = "none"
+      this.props.history.push("/")
     } else {
       e.preventDefault()
       alert("Форма заполнена неверно")
@@ -147,6 +148,9 @@ class Owners extends Component {
       }
     }
 
+    addUser = () => {
+      this.props.history.push("add")
+    }
 
     componentDidMount() {
             this.getData()
@@ -163,17 +167,12 @@ class Owners extends Component {
 
   render() {
     this.checkUrl()
-    // if (document.querySelector(".addUser")) {
-    //   if (document.querySelector(".addUser").style.display === "block") {
-    //     this.props.history.push("/add")
-    //   }
-    // }
     return (
 
       <div>
         <div className="blur">
           <div className="section-label mt-3">Автовладельцы</div>
-          <SearchBar className="searchbar" onSearchBar={this.handleId} />
+          <SearchBar className="searchbar" onSearchBar={this.handleId} add={this.addUser} />
           <div className="last-label">Последние добавленные пользователи:</div>
           <div className="list-info">
             {this.state.data ? <ListInfo info={this.state.data} current={this.state} /> : <ListInfo /> }

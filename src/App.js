@@ -72,7 +72,7 @@ class App extends Component {
         <div className="info col-8 offset-1">
           <Switch>
             <Route path={`/owners/:id`} component={Owners} />
-            <Route path={`/cars`} component={Catalog} onLoad={() => {console.log(111)}}/>
+            <Route path={`/cars`} component={Catalog} />
             <Route path={`/statistics`} component={Statistics} />
             <Route component={Notfound} />
           </Switch>
