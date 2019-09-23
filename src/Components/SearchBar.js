@@ -18,6 +18,7 @@ class SearchPage extends Component {
     if (value === "") {
       this.props.onSearchBar(``)
     }
+    document.querySelector(".last-label").style.display = "block";
   }
 
 

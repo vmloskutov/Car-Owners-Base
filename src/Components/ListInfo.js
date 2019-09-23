@@ -17,11 +17,13 @@ class ListInfo extends Component {
 
   getBack() {
     this.setState({id : null})
+    document.querySelector(".last-label").style.display = "block";
   }
 
 
   render() {
     if (this.state.id !== undefined && this.state.id !== null && this.props.current.name === undefined) {
+      document.querySelector(".last-label").style.display = "none";
       return(
         <div>
           <Button onClick={(() => {this.getBack()})} className="mb-3" variant="outline-secondary">Назад</Button>
@@ -36,6 +38,7 @@ class ListInfo extends Component {
         </div>
       )
     } else {
+      document.querySelector(".last-label").style.display = "none";
       return (
         <div>
           {this.props.current.error ? <Error error={this.props.current.error} /> : <CurrentPerson data={this.props.current} />}
