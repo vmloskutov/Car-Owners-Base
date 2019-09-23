@@ -15,10 +15,10 @@ class PersonsList extends Component {
 
   render() {
       return (
-        <div className="d-flex person-list">
-          {this.props.list.slice(0, 5).map((person, index) => {
+        <div className="person-list">
+          {this.props.list.slice(0, 6).map((person, index) => {
             return(
-              <div className="ml-4 ml-2" key={index}>
+              <div className="" key={index}>
                 <Person  personId={person} selectedInfo={this.personRender}/>
               </div>
             )

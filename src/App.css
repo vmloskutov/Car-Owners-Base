@@ -136,20 +136,25 @@ input[type=number]::-webkit-outer-spin-button {
 
 .addUser {
   display: none;
-  border: 2px solid #848482;
-  border-radius: 10px;
-  z-index: 999;
+  border: 1px solid black;
+  border-radius: 20px;
   background-color: #fff;
   position: absolute;
-  width: 600px;
-  height: 300px;
-  left: 30%;
+  width: 688px;
+  height: 500px;
+  left: 8%;
+  top: 20%;
   align-items: center;
+  z-index:10;
+  opacity: 1;
 }
 
 .addlabel {
+  margin-top: 20px;
   font-size: 20px;
+  font-weight: 800;
 }
+
 
 .addform {
   display: inline;
@@ -163,34 +168,42 @@ input[type=number]::-webkit-outer-spin-button {
 
   width: 94%;
   padding: 5px 10px;
-  margin: 0px 0 15px 0;
+  margin: 15px 0 15px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .buttons {
+  margin-top: 20px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .cancelbtn {
+  width: 200px;
+  height: 55px;
+  border: 2px solid #4E4FC3;
   background-color: white;
-
-  border-radius: 4px;
-  border: 2px solid red;
+  border-radius: 40px;
+  color: #4E4FC3;
 }
 
 .okbtn {
-  background-color: white;
+  background: linear-gradient(269deg, #3F3FA0 0.21%, #5F62EB 99.76%);
+  border-radius: 40px;
   margin-left: 20px;
-  border-radius: 4px;
-  border: 2px solid green;
+  width: 200px;
+  height: 55px;
+  color: #FFFFFF;
+  border: none;
 }
 
 .inplbl {
   font-size: 15px;
   margin-bottom: 5px;
+  margin-top: 24px;
 }
 
 .name-error, .date-error {
@@ -239,8 +252,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .close {
-  margin-right: 30px;
-  margin-top: -40px;
+  height: 28px;
+  width: 28px;
+  margin-right: 49px;
+  margin-top: -1;
 }
 
 .add-car-form {
@@ -384,5 +399,20 @@ box-shadow: 0 0 0 0.2rem #565051;
 }
 
 .person-list {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.last-label {
+  margin: 20px 0 10px 0;
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index:0;
 }
