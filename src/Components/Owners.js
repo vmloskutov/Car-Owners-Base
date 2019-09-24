@@ -71,6 +71,7 @@ class Owners extends Component {
       document.querySelector(".blur").style.opacity = 1
       document.querySelector(".addUser").style.display = "none"
       this.props.history.push("/")
+      this.getData()
     } else {
       e.preventDefault()
       alert("Форма заполнена неверно")
@@ -167,6 +168,11 @@ class Owners extends Component {
 
   render() {
     this.checkUrl()
+    // if (document.querySelector(".addUser")) {
+    //   if (document.querySelector(".addUser").style.display === "block") {
+    //     this.props.history.push("/add")
+    //   }
+    // }
     return (
 
       <div>
