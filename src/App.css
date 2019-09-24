@@ -1,6 +1,12 @@
 @import "../node_modules/react-datepicker/dist/react-datepicker.css";
 .App {
   text-align: center;
+
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
 }
 
 body > #root > div {

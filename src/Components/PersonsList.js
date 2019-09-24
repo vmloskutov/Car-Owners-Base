@@ -16,7 +16,7 @@ class PersonsList extends Component {
   render() {
       return (
         <div className="person-list">
-          {this.props.list.slice(0, 6).map((person, index) => {
+          {this.props.list.slice(0, 4).map((person, index) => {
             return(
               <div className="" key={index}>
                 <Person  personId={person} selectedInfo={this.personRender}/>
