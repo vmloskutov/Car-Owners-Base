@@ -3,6 +3,8 @@ import axios from "axios"
 import FilteringList from './FilteringList'
 import FilteringListModels from './FilteringListModels'
 import Select from 'react-select'
+var moment = require('moment');
+moment().format();
 
 let options = [];
 
@@ -97,11 +99,23 @@ class Catalog extends Component {
       .then(response => {
           this.setState({ ids : response.data })
           response.data.reverse().forEach(item => {
-            let temp = {
-              value: item,
-              label: item
-            }
-            options.push(temp)
+            axios
+              .get('http://172.30.215.172:8081/RESTfulWebApp/personwithcars', {
+                params: {
+                  personid: item
+                }
+              })
+              .then(response => {
+                let dateFormatted = moment(response.data.birthdate, "DD.MM.YYYY").format("YYYY-MM-DD")
+                let years = moment().diff(dateFormatted, 'years', false)
+                if ( years >= 18) {
+                  let temp = {
+                    value: item,
+                    label: item
+                  }
+                  options.push(temp)
+                }
+              })
           })
       })
     }
@@ -155,11 +169,11 @@ class Catalog extends Component {
 
   render() {
       return (
-        <div className="">
+        <div>
           <div className="blur">
             <div className="section-label mt-3">Каталог автомобилей</div>
             <div className="row">
-              <div className="col-3 pl-0 mt-3">
+              <div className="col-3 pl-0 mt-4">
                 <div className="ml-3">Выберите марку</div>
                 {
                   console.log(this.state.brands)
@@ -192,7 +206,7 @@ class Catalog extends Component {
              <div className="addform container">
                <div className="row d-flex justify-content-between">
                  <label className="addlabel"> Добавление автомобиля в автопарк </label>
-                 <button type="button" onClick={this.closeUser} className="close"><svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                 <button type="button" onClick={this.closeUser} className="close mr-4"><svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                  <path d="M1 1L29.5 29.5M1 29.5L29.5 1" stroke="#CFCFCF" strokeWidth="2"/>
                  </svg></button>
                </div>
@@ -207,10 +221,10 @@ class Catalog extends Component {
                   <div className="add-car-error ml-3">Выберите ID пользователя</div>
                     <div className="mt-3 ml-3 ">Последние добавленные:</div>
                   <div className="mt-3 ml-3 last-persons">
-                    {this.state.ids ? this.state.ids.slice(0,3).map((person, index) => {
+                    {options ? options.slice(0,3).map((person, index) => {
                       return(
                         <div key={index} className="last-person pl-3" onClick={this.selectFromTheLast}>
-                          {person}
+                          {person.value}
                         </div>
                       )
                     }) : null}

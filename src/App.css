@@ -271,8 +271,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .add-car-form {
   display: none;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   border: 1px solid black;
   border-radius: 20px;
   background-color: #fff;
@@ -302,7 +302,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .last-persons {
-  width: 98%;
+  width: 96%;
   border-radius: 10px;
   border: 2px solid #E4E4E4;
   background-color: #E0E8FF;

@@ -34,7 +34,7 @@ class Statistics extends Component {
               enabled: false
           },
           title: {
-              text: 'Статистика '
+              text: ' '
           },
           yAxis: {
               title: {
@@ -101,11 +101,13 @@ class Statistics extends Component {
   render() {
       return (
         <div>
-        {this.state.options ? <HighchartsReact
-            highcharts={Highcharts}
-            options={this.state.options}
-          /> : null}
-
+        <div className="section-label mt-3">Статистика</div>
+         <div className="mt-5">
+          {this.state.options ? <HighchartsReact
+              highcharts={Highcharts}
+              options={this.state.options}
+            /> : null}
+          </div>
         </div>
     )
 
